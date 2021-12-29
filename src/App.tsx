@@ -24,6 +24,12 @@ export default class App extends React.Component {
     const b = Math.floor(Math.random() * 255)
     return 'rgba(' + r + ',' + g + ',' + b + ',1)'
   }
+  componentDidMount() {
+    // 可用户自己定义滚动
+    // setInterval(() => {
+    //   this.superSwiper?.MoveItem(true)
+    // }, 800)
+  }
   render(): JSX.Element {
     return (
       <div>
@@ -36,14 +42,15 @@ export default class App extends React.Component {
           }}
           className="superContainer"
           layout="horizontal"
+          auto={true}
           option={{
-            speed: 'normal',
+            speed: 'slow',
             show_num: 4,
             // aspect_ratio: ['0.8,0.4', '0.9,0.5'],纵横比例
             aspect_ratio: ['0.4,0.8', '0.5,0.9'],
             card_size: { w: 200, h: 200 },
             n_sing: { n0: 1.6, n1: 0.7 },
-            // n_sing: { n0: 1.8, n1: 0.8 },两端隐藏不过见
+            // n_sing: { n0: 1.8, n1: 0.8 }, ///两端隐藏不过见
             spacing: 6,
           }}
           data={this.data}
@@ -63,10 +70,12 @@ export default class App extends React.Component {
               </div>
             )
           }}
+          auto={true}
+          direction="Perv"
           className="superContainer01"
           layout="vertical"
           option={{
-            speed: 'normal',
+            speed: 'slow',
             show_num: 3,
             aspect_ratio: ['0.8,0.4', '0.9,0.5'],
             card_size: { w: 200, h: 200 },
